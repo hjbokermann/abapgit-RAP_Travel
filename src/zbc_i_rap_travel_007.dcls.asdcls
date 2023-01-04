@@ -1,0 +1,14 @@
+@EndUserText.label: 'Access Control for ZBC_I_RAP_TRAVEL_007'
+@MappingRole: true
+define role ZBC_I_RAP_TRAVEL_007 {
+    grant
+        select
+            on
+                ZBC_I_RAP_TRAVEL_007
+                    where
+                    CurrencyCode = 'EUR'
+                    and
+                    ( TravelStatus ) = aspect pfcg_auth( ZBC_OSTAT, ZBC_OSTAT, ACTVT = '03' )
+                    or true;
+                        
+}
